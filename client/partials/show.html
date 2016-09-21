@@ -1,0 +1,7 @@
+<!-- show.html -->
+<h3>Show page</h3>
+<h4>First name: <span ng-bind="friend.first_name"></span></h4>
+<h4>Last name: <span ng-bind="friend.last_name"></span></h4>
+<h4>Birthday: <span ng-bind="friend.birthday | date : medium"></span></h4>
+<h4>User was created on : <span ng-bind="friend.createdAt | date : 'EEE MMM d, y h:mm a'"></span></h4>
+<h4>Last time updated on : <span ng-bind="friend.updatedAt | date : 'EEE MMM d, y h:mm a'"></span></h4>

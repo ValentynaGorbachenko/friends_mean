@@ -1,0 +1,30 @@
+<!-- friends.html -->
+<h3>Friends page / all friends</h3>
+<div class="block">
+	<a href="#/friends/new"><button>NEW FRIEND</button></a>
+	<br><br>
+	<div ng-if="friends.length !== 0">
+		<input id="search" type="search" ng-model="bd.birthday" placeholder="yyyy-mm-dd"> <small> * click on the table header to sort</small>
+		<table>
+			<thead>
+				<th ng-click="sortBy();">Name<span class="sortorder" ng-show="true" ng-class="{reverse: reverse}"></span></th>
+				<th>Show</th>
+				<th>Update</th>
+				<th>Delete</th>
+			</thead>
+			<tr ng-repeat="friend in friends | orderBy: 'first_name' : reverse | filter: bd:strict as results track by $index">
+				<td ng-bind="friend.first_name + ' ' + friend.last_name"></td>
+				<td ng-hide="true" ng-bind="friend.birthday | date : 'MMM d, y'""></td>
+				<td><a href="#/friends/{{friend._id}}">SWOW</a></td>
+				<td><a href="#/friends/{{friend._id}}/edit">EDIT</a></td>
+				<td><a ng-click="deleteFriend(friend);">DELETE</a></td>
+			</tr>
+			<tr ng-if="results.length===0">
+				<td>No such results...</td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+</div>
