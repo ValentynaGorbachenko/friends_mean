@@ -14,7 +14,7 @@
 			</thead>
 			<tr ng-repeat="friend in friends | orderBy: 'first_name' : reverse | filter: bd:strict as results track by $index">
 				<td ng-bind="friend.first_name + ' ' + friend.last_name"></td>
-				<td ng-hide="true" ng-bind="friend.birthday | date : 'MMM d, y'""></td>
+				<td ng-hide="true" ng-bind="friend.birthday | date : 'MMM d, y'"></td>
 				<td><a href="#/friends/{{friend._id}}">SWOW</a></td>
 				<td><a href="#/friends/{{friend._id}}/edit">EDIT</a></td>
 				<td><a ng-click="deleteFriend(friend);">DELETE</a></td>
